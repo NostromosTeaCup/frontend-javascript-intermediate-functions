@@ -15,7 +15,15 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6
+let cumLaudeStudents = 0;
 
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        cumLaudeStudents = cumLaudeStudents + 1;
+    }
+}
+
+console.log(cumLaudeStudents);
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -27,8 +35,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([6, 4, 5]) geeft 0
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
+function cumLaude (cumLaudeGrades) {
+    let cumLaudeCount = 0
+    for (let i = 0; i < cumLaudeGrades.length; i++) {
+        if (cumLaudeGrades[i] >= 8) {
+            cumLaudeCount = cumLaudeCount + 1;
+        }
+    }
+    return cumLaudeCount;
+}
 
-
+const cumLaudeArray = cumLaude([8, 9, 4, 6, 10]);
+console.log(cumLaudeArray);
 
 /* Opdracht  2: Gemiddeld cijfer */
 
@@ -42,11 +60,35 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+let total = 0
+
+function gradeAverage () {
+    for (let i = 0; i < grades.length; i++) {
+        total += grades[i];
+    }
+    return total;
+}
+
+const averageTotal = (gradeAverage(grades)) / grades.length;
+console.log(averageTotal);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+const gradesTotal = [8, 9, 4, 6, 10];
+let totalCount = 0;
+
+function averageGrades () {
+    for (let i = 0; i < gradesTotal.length; i++) {
+        totalCount += gradesTotal[i];
+    }
+    return totalCount;
+}
+
+const averageTotals = (averageGrades(gradesTotal)) / gradesTotal.length;
+console.log(averageTotals);
 
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
@@ -58,6 +100,16 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
 
+function averageGradeRounded () {
+    let totalAverage = 0;
+    for (let i = 0; i < grades.length; i++) {
+        totalAverage += grades[i]
+    }
+    return totalAverage
+}
+
+const averageDecimals = averageGradeRounded(grades) / grades.length;
+console.log(averageDecimals.toFixed(2));
 
 
 
